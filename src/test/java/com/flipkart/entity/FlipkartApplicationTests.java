@@ -34,9 +34,9 @@ class FlipkartApplicationTests {
 	@Test
 	public void addProductCategory() {
 		ProductCategory category= new ProductCategory();
-		category.setCategoryName("Sports_Shoes");
+		category.setCategoryName("Smart_Watch");
 		category= categoryRepository.save(category);
-		System.out.println(category);
+		System.out.println(category.getCategoryName());
 	}
 	
 	@Test
