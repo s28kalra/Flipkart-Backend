@@ -42,11 +42,11 @@ public class MyRestDataConfig implements RepositoryRestConfigurer, WebMvcConfigu
 				.withCollectionExposure((metadata, httpMethod) -> httpMethod.disable(unsupportedActions));
 	}
 
-	@Override
+/*	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("*").allowedOrigins(origins);
 	}
-	
+*/	
 	
 
 }
