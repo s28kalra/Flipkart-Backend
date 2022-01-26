@@ -1,7 +1,9 @@
 package com.flipkart.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,8 +30,15 @@ public class Country {
 	@Column (name = "name")
 	private String name;
 	
-	@OneToMany(mappedBy = "country", fetch = FetchType.LAZY)
-	private List<State> states;
+	@OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<State> states= new ArrayList<State>();
+	
+	public void add(State state) {
+		if(state!=null) {
+			states.add(state);
+			state.setCountry(this);
+		}
+	}
 	
 
 }
