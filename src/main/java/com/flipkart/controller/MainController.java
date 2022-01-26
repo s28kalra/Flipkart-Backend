@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.flipkart.dto.AddProduct;
 import com.flipkart.dto.AddressDto;
 import com.flipkart.dto.CountryDto;
+import com.flipkart.dto.CustomerDto;
 import com.flipkart.dto.PaymentDto;
 import com.flipkart.dto.ProductCategoryDto;
 import com.flipkart.dto.ProductDto;
@@ -27,6 +28,7 @@ import com.flipkart.entity.Address;
 import com.flipkart.service.AddressService;
 import com.flipkart.service.CheckoutService;
 import com.flipkart.service.CountryService;
+import com.flipkart.service.CustomerService;
 import com.flipkart.service.ProductCategoryService;
 import com.flipkart.service.ProductService;
 import com.flipkart.service.StateService;
@@ -52,6 +54,8 @@ public class MainController {
 	private TransactionService transactionService;
 	@Autowired
 	private AddressService addressSerive;
+	@Autowired
+	private CustomerService customerService;	
 
 	private Gson gson = new Gson();
 
@@ -83,6 +87,11 @@ public class MainController {
 	@GetMapping("/countries")
 	public ResponseEntity<List<CountryDto>> getAllCountries() {
 		return countryService.getAllCountries();
+	}
+	
+	@PostMapping("/addCustomer")
+	public boolean setCustomer(@RequestBody CustomerDto customer ) {
+		return customerService.setCustomer(customer.getFirstName(), customer.getLastName());
 	}
 
 	@GetMapping("/country/{countryId}")

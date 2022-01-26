@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
+import com.flipkart.controller.MainController;
 import com.flipkart.repository.CustomerRepository;
 
 @SpringBootTest
@@ -16,6 +17,9 @@ public class AddressTest {
 	
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private MainController controller;
 	
 	
 	private void setAddress(Address address) {
@@ -32,6 +36,11 @@ public class AddressTest {
 		customer.setMobile("7988458317");
 		customer.setEmail("sagarkalra03@gmail.com");
 		
+	}
+	
+	@Test
+	public void getAddress() {
+		controller.getListOfAddresses("sagarkalra03@gmail.com");
 	}
 	
 	@Test
