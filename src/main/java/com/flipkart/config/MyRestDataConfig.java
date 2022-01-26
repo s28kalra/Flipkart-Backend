@@ -19,8 +19,8 @@ import com.flipkart.entity.Transaction;
 @Configuration
 public class MyRestDataConfig implements RepositoryRestConfigurer, WebMvcConfigurer {
 	
-	@Value("${allowed.origins}") 
-	private String[] origins;
+//	@Value("${allowed.origins}") 
+//	private String[] origins;
 
 	HttpMethod[] unsupportedActions = { HttpMethod.POST, HttpMethod.PUT, HttpMethod.DELETE, HttpMethod.PATCH };
 
